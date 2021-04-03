@@ -1,0 +1,98 @@
+.register{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* background-color: red; */
+    /* background: linear-gradient(135deg, var(--primary-color) 50%, transparent 50%, transparent); */
+}
+
+.register__image{
+    position: relative;
+    background-color: var(--secondary-color);
+}
+
+.register__form{
+    position: relative;
+    background-color: var(--color-light);
+}
+
+.image__text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image__text h1{
+    font-size: 3rem;
+    color: var(--color-light);
+    padding-bottom: 1.5rem;
+}
+
+.image__text p{
+    font-size: 1.5rem;  
+    color: var(--secondary-color-light);
+    line-height: 1.5;
+    letter-spacing: .15rem;
+}
+
+.form__box{
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.register__form .form__title{
+    color: var(--color-dark);
+    padding: 1rem 0;
+}
+
+.register__form h1{
+    font-size: 5rem;    
+    font-weight: 700;
+}
+
+.register__form h6{
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.2;
+}
+
+.form__group{
+    display: block;
+    padding: .7rem 0;
+}
+
+.form__group input{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: .1rem solid var(--secondary-color);
+    outline: none;
+    border-left: 1rem solid var(--secondary-color);
+    border-radius: .5rem;
+    background-color: transparent;
+    color: var(--color-dark);
+}
+
+.form__group button{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    color: var(--color-light);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.form__group input::placeholder{
+    color: var(--color-dark);
+}

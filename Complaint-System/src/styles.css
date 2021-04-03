@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Color Variables */
+
+:root{
+    --primary-color: #fe5f55;
+    --secondary-color: #577399;
+    --secondary-color-light: #bdd5ea;
+    --color-light: #f7f7ff;
+    --color-dark: #495867;
+}
+
+/* Google Font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Basic Styling for all elements */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting Font-Size to 10px  */
+html{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62.5%;
+}
