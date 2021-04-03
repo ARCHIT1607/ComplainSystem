@@ -1,4 +1,4 @@
-package com.devloper.cs;
+package com.developer.cs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
