@@ -17,7 +17,7 @@ import com.developer.cs.service.CustomerService;
 
 @RestController
 @RequestMapping(value = "/api")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 
 	Logger log = LoggerFactory.getLogger(CustomerController.class);
