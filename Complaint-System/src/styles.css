@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Color Variables */
+/* Google Font Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* Color Variables */
 :root{
     --primary-color: #fe5f55;
     --secondary-color: #577399;
@@ -10,8 +12,6 @@
     --color-dark: #495867;
 }
 
-/* Google Font Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Basic Styling for all elements */
 *,

@@ -96,3 +96,23 @@
 .form__group input::placeholder{
     color: var(--color-dark);
 }
+
+.form__group label{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.form__group .error{
+    border: .1rem solid var(--primary-color);
+    border-left: 1rem solid var(--primary-color);
+}
+
+.form__group .error-msg{
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.form__group .hide{
+    display: none;
+}
