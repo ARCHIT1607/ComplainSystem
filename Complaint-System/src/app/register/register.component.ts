@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from '../enrollment.service';
+import { User } from '../User/user';
 
 @Component({
   selector: 'app-register',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
+  userModel = new User('Darshan', 'd.sakpal38@gmail.com', 'System@123')
+  constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    console.log(this.userModel);
+    this.enrollService.register(this.userModel)
+      .subscribe(
+        data => console.log('Success!', data),
+        error => console.error('Error!', error)
+      )
   }
 
 }
