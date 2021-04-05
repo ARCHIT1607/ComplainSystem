@@ -92,7 +92,7 @@
 							<outputDirectory>${basedir}/target/classes/static/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../Complaint-System/dist/Complaint-System</directory>
+									<directory>${basedir}/Complaint-System/dist/Complaint-System</directory>
 								</resource>
 							</resources>
 						</configuration>
