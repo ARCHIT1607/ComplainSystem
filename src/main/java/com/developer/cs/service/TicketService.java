@@ -16,8 +16,8 @@ public class TicketService {
 	@Autowired
 	TicketRepository ticketRepository;
 
-	public List<Ticket> getAllTicketsByCustomer(String username) {
-		return ticketRepository.getAllTicketsByCustomer(username);
+	public List<Ticket> getAllTicketsByCustomer(Long userId) {
+		return ticketRepository.getAllTicketsByCustomer(userId);
 	}
 
 	public Ticket addTicket(Ticket ticket) {

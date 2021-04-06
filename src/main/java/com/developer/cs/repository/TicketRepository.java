@@ -12,6 +12,6 @@ import com.developer.cs.entity.Ticket;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long>{
 
-	@Query("select t from Ticket t where t.created_by =:username")
-	public List<Ticket> getAllTicketsByCustomer(@Param("username") String username);
+	@Query("select t from Ticket t where t.userId=:userId")
+	public List<Ticket> getAllTicketsByCustomer(Long userId);
 }
