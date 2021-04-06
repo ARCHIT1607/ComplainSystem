@@ -1,24 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from '../app/register/register.component'
+import { RegisterComponent } from './authentication/register/register.component'
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
 import { UserTicketComponent } from './user-ticket/user-ticket.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/register',
+    redirectTo: '/auth',
     pathMatch: 'full'
   },
   {
-    path: 'register', 
-    component: RegisterComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
+    path: 'auth', 
+    component: AuthenticationComponent,
+    children: [
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }
+    ]
   },
   {
     path: 'user-dashboard',
@@ -35,4 +42,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [ RegisterComponent, LoginComponent, UserTicketComponent, AdminDashboardComponent] 
+export const routingComponents = [ AuthenticationComponent, RegisterComponent, LoginComponent, UserTicketComponent, AdminDashboardComponent] 
