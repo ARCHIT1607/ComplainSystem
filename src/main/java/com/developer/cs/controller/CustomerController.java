@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +44,12 @@ public class CustomerController {
 	}
 
 	@PostMapping(value = "/login")
-	public ResponseEntity<Map<String, Object>> login(@RequestBody Customer customer) {
+	public ResponseEntity<Map<String, Object>> login(HttpServletRequest request, @RequestBody Customer customer) {
 		log.info("login controller");
 		Boolean valid = customerService.validate(customer.getEmail(), customer.getPassword());
 		if(valid == true) {
+			long userId = (Long) request.getAttribute("userId");
+			customer.setId(userId);
 			return new ResponseEntity<>(generateJWTToken(customer), HttpStatus.OK);
 		}
 		else {

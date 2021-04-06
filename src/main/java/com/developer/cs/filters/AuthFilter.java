@@ -25,27 +25,26 @@ public class AuthFilter extends GenericFilterBean {
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
 
         String authHeader = httpRequest.getHeader("Authorization");
-        System.out.println("authHeader "+authHeader);
         if(authHeader != null) {
             String[] authHeaderArr = authHeader.split("Bearer ");
-            System.out.println("authHeaderArr "+authHeaderArr);
-            System.out.println("size "+authHeaderArr.length);
             if(authHeaderArr.length > 1 && authHeaderArr[1] != null) {
                 String token = authHeaderArr[1];
                 try {
                     Claims claims = Jwts.parser().setSigningKey(Constant.API_SECRET_KEY)
                             .parseClaimsJws(token).getBody();
                     httpRequest.setAttribute("userId", Long.parseLong(claims.get("userId").toString()));
-                    System.out.println("userId "+claims.get("userId").toString());
                 }catch (Exception e) {
+                	System.out.println("exception "+e.getMessage());
                     httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "invalid/expired token");
                     return;
                 }
             } else {
+            	System.out.println("exception bearer must be present");
                 httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "Authorization token must be Bearer [token]");
                 return;
             }
         } else {
+        	System.out.println("exception Authorization token must be provided");
             httpResponse.sendError(HttpStatus.FORBIDDEN.value(), "Authorization token must be provided");
             return;
         }
