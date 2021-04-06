@@ -20,7 +20,11 @@ import com.developer.cs.service.TicketService;
 
 @RestController
 @RequestMapping(value = "/ticket")
+<<<<<<< HEAD
+@CrossOrigin(origins = "*")
+=======
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+>>>>>>> a8315b9eaa505d7d7e0d198eac3e6df4c476dbbf
 public class TicketController {
 
 	@Autowired
