@@ -16,7 +16,7 @@ import com.developer.cs.service.TicketService;
 
 @RestController
 @RequestMapping(value = "/ticket")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class TicketController {
 
 	@Autowired
