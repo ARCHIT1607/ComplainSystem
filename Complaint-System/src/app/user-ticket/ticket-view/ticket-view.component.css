@@ -15,6 +15,7 @@
     background-color: #ffffff;
     color: var(--color-dark);
     border-radius: .5rem;
+    border: .01rem solid var(--color-dark); 
 }
 
 .ticket__body::before{
@@ -25,7 +26,7 @@
     bottom: 0;
     right: 0;
     background-color: var(--secondary-color-light);
-    transform: rotate(3deg);
+    transform: rotate(4deg);
     z-index: -1;
     border-radius: .5rem;
     -webkit-column-break-inside: avoid;
@@ -46,4 +47,33 @@
     color: inherit;
     line-height: 1.2;
     text-align: justify;
+    margin-bottom: 1rem;
 }
+
+.ticket__body .ticket__stat, .ticket__body .ticket__creator{
+    display: flex;
+}
+
+.ticket__body .ticket__creator{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket__stat .ticket__priority, .ticket__stat .ticket__status{
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: .5rem 1rem;
+    background-color: var(--secondary-color-light);
+    border-radius: .5rem;
+    margin-right: .5rem;
+}
+
+.ticket__creator .ticket__author, .ticket__creator .ticket__created{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    margin-bottom: 1rem;
+}
+
