@@ -1,0 +1,49 @@
+.ticket__container{
+    /* display: grid; */
+    columns: 3;
+    column-gap: 3rem;
+}
+
+.ticket__body{
+    position: relative;
+    width: 100%;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background-color: #ffffff;
+    color: var(--color-dark);
+    border-radius: .5rem;
+}
+
+.ticket__body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--secondary-color-light);
+    transform: rotate(3deg);
+    z-index: -1;
+    border-radius: .5rem;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.ticket__body .ticket__title{
+    font-size: 2rem;
+    font-weight: 600;
+    color: inherit;
+    margin-bottom: 1rem;
+}
+
+.ticket__body .ticket__desc{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: inherit;
+    line-height: 1.2;
+    text-align: justify;
+}

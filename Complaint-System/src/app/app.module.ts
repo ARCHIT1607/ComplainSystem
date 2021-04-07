@@ -12,13 +12,17 @@ import { UserTicketComponent } from './user-ticket/user-ticket.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { TicketViewComponent } from './user-ticket/ticket-view/ticket-view.component';
+import { TicketRaiseComponent } from './user-ticket/ticket-raise/ticket-raise.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     HeaderComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    TicketViewComponent,
+    TicketRaiseComponent
   ],
   imports: [
     BrowserModule,

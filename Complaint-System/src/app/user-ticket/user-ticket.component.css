@@ -23,3 +23,7 @@
     background-color: var(--color-dark);
     color: var(--color-light);
 }
+
+.dashboard__body{
+    padding: 5rem 0;
+}
