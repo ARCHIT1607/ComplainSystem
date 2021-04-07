@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticationComponent implements OnInit {
 
-  constructor() { }
+  myComponent: string;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot);
+
   }
 
 }
