@@ -31,3 +31,60 @@ html{
 .hide{
     display: none;
 }
+
+/* Form styling */
+
+.form__group{
+    display: block;
+    padding: .7rem 0;
+}
+
+.form__group input, .form__group textarea, .form__group select{
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: .1rem solid var(--secondary-color);
+    outline: none;
+    border-left: 1rem solid var(--secondary-color);
+    border-radius: .5rem;
+    background-color: transparent;
+    color: var(--color-dark);
+}
+
+.form__group button{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    color: var(--color-light);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.form__group input::placeholder{
+    color: var(--color-dark);
+}
+
+.form__group label{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.form__group .error{
+    border: .1rem solid var(--primary-color);
+    border-left: 1rem solid var(--primary-color);
+}
+
+.form__group .error-msg{
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.form__group .hide{
+    display: none;
+}

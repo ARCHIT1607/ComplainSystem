@@ -4,7 +4,7 @@
         <h6>Create a new Account!</h6>
     </div>
     <div class="form__container">
-        <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit()">
+        <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit(registerForm.value)">
             {{registerForm.value | json}}
             <div class="form__group">
                 <label for="name">Full Name</label>

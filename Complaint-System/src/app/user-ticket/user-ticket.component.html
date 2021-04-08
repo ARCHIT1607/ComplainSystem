@@ -7,10 +7,10 @@
     </div>
     <div class="dashboard__body">
         <!-- <router-outlet name="userView"></router-outlet> -->
-        <div *ngIf = "userToggle">
+        <div class="ticket__view" *ngIf = "userToggle">
             <app-ticket-view></app-ticket-view>
         </div>
-        <div *ngIf = "!userToggle">
+        <div class="ticket__form" *ngIf = "!userToggle">
             <app-ticket-raise></app-ticket-raise>
         </div>
     </div>

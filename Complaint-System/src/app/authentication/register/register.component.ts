@@ -8,16 +8,21 @@ import { User } from '../../Models/User/user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  userModel = new User('Darshan', 'd.sakpal38@gmail.com', 'System@123')
-  // userModel: User
+  userModel = new User('', '', '')
+  // public userModel = [];
+  // id:number;
+  // username:string;
+  // email:string;
+  // password:string;
+
   constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    console.log(this.userModel);
-    this.enrollService.register(this.userModel)
+  onSubmit(userForm:any){
+    console.log(userForm);
+    this.enrollService.register(userForm)
       .subscribe(
         data => console.log('Success!', data),
         error => console.error('Error!', error)

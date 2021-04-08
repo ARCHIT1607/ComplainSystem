@@ -1,1 +1,43 @@
-<p>ticket-raise works!</p>
+<div class="form__container">
+    <form #ticketForm = "ngForm">
+        <div class="form__group">
+            <label for="title">Incident Title</label>
+            <input type="text" name="title" id="title" placeholder="E.g. Internet Issue">
+        </div>
+        <div class="form__group">
+            <label for="desc">Incident Description</label>
+            <!-- <input type="text" name="desc" id="desc"> -->
+            <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning."></textarea>
+        </div>
+        <div class="form__group">
+            <label for="types">Incident Type</label>
+            <!-- <input type="text" name="type" id="type"> -->
+            <select name="types" id="types">
+                <option selected>Select an incident type</option>
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+        <div class="form__group">
+            <label for="">Incident Priority</label>
+            <select name="types" id="types">
+                <option selected>Select Priority of the incident</option>
+                <option *ngFor="let prior of priority" [value]="prior">{{ prior }}</option>
+            </select>
+        </div>
+        <!-- <div class="form__group">
+            <label for=""></label>
+            <input type="text" name="" id="">
+        </div>
+        <div class="form__group">
+            <label for=""></label>
+            <input type="text" name="" id="">
+        </div>
+        <div class="form__group">
+            <label for=""></label>
+            <input type="text" name="" id="">
+        </div> -->
+        <div class="form__group">
+            <button type="submit">Submit Ticket</button>
+        </div>
+    </form>
+</div>

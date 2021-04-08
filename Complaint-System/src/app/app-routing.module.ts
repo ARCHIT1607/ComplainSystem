@@ -32,13 +32,6 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserTicketComponent,
-    children: [
-      {
-        path: 'view-tickets',
-        component: TicketViewComponent,
-        outlet: "userView"
-      }
-    ]
   },
   {
     path: 'admin-dashboard',

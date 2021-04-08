@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from 'src/app/enrollment.service';
+import { Ticket } from 'src/app/Models/Ticket/ticket';
 
 @Component({
   selector: 'app-ticket-raise',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketRaiseComponent implements OnInit {
 
-  constructor() { }
+  // ticket = new Ticket(..., '',);
+  types = ["technical", "mon-technical"];
+  priority  = ["low", "medium", "high"]
+
+  constructor(private raiseticket: EnrollmentService) { }
 
   ngOnInit(): void {
   }
+
+  // onSubmit(){
+  //   console.log(this.)
+  // }
 
 }

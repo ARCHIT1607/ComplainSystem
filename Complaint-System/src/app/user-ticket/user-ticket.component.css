@@ -27,3 +27,7 @@
 .dashboard__body{
     padding: 5rem 0;
 }
+
+.dashboard__body .ticket__form{
+    width: 100%;
+}
