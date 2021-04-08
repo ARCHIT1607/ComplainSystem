@@ -5,6 +5,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { LoginComponent } from './authentication/login/login.component';
 import { UserTicketComponent } from './user-ticket/user-ticket.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { TicketViewComponent } from './user-ticket/ticket-view/ticket-view.component';
+import { TicketRaiseComponent } from './user-ticket/ticket-raise/ticket-raise.component';
 
 
 const routes: Routes = [
@@ -29,12 +31,20 @@ const routes: Routes = [
   },
   {
     path: 'user-dashboard',
-    component: UserTicketComponent
+    component: UserTicketComponent,
+    children: [
+      {
+        path: 'view-tickets',
+        component: TicketViewComponent,
+        outlet: "userView"
+      }
+    ]
   },
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent
   },
+  
 ];
 
 @NgModule({

@@ -1,12 +1,18 @@
 <section class="user__dashboard">
     <div class="dashboard__header">
         <ul>
-            <li><a href="#" class="active">View Tickets</a></li>
-            <li><a href="#">Raise Ticket</a></li>
+            <li><a [ngClass]="{active: userToggle}" (click)="toggleView()">View Tickets</a></li>
+            <li><a [ngClass]="{active: !userToggle}" (click)="toggleView()">Raise Ticket</a></li>
         </ul>
     </div>
     <div class="dashboard__body">
-        <app-ticket-view></app-ticket-view>
+        <!-- <router-outlet name="userView"></router-outlet> -->
+        <div *ngIf = "userToggle">
+            <app-ticket-view></app-ticket-view>
+        </div>
+        <div *ngIf = "!userToggle">
+            <app-ticket-raise></app-ticket-raise>
+        </div>
     </div>
 </section>
 

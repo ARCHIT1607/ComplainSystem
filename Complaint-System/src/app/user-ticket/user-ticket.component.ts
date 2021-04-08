@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-ticket.component.css']
 })
 export class UserTicketComponent implements OnInit {
-
+  userToggle = true;
+  // toggle = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleView(){
+    this.userToggle = !this.userToggle;
+    // this.toggle = !this.toggle;
+  }
 }
