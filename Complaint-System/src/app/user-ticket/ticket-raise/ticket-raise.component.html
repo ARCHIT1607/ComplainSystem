@@ -12,17 +12,21 @@
         <div class="form__group">
             <label for="types">Incident Type</label>
             <!-- <input type="text" name="type" id="type"> -->
-            <select name="types" id="types">
-                <option selected>Select an incident type</option>
-                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
-            </select>
+            <div class="select">
+                <select name="types" id="types">
+                    <option selected>Select an incident type</option>
+                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                </select>
+            </div>
         </div>
         <div class="form__group">
             <label for="">Incident Priority</label>
-            <select name="types" id="types">
-                <option selected>Select Priority of the incident</option>
-                <option *ngFor="let prior of priority" [value]="prior">{{ prior }}</option>
-            </select>
+            <div class="select">
+                <select name="types" id="types">
+                    <option selected>Select Priority of the incident</option>
+                    <option *ngFor="let prior of priority" [value]="prior">{{ prior }}</option>
+                </select>
+            </div>
         </div>
         <!-- <div class="form__group">
             <label for=""></label>

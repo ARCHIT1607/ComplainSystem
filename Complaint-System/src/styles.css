@@ -39,7 +39,7 @@ html{
     padding: .7rem 0;
 }
 
-.form__group input, .form__group textarea, .form__group select{
+.form__group input, .form__group textarea, .form__group .select{
     width: 100%;
     padding: 1rem;
     font-size: 1.5rem;
@@ -65,7 +65,7 @@ html{
     cursor: pointer;
 }
 
-.form__group input::placeholder{
+.form__group input::placeholder, .form__group select{
     color: var(--color-dark);
 }
 
@@ -88,3 +88,41 @@ html{
 .form__group .hide{
     display: none;
 }
+
+.form__group select{
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+.form__group select::-ms-expand{
+    display: none;
+}
+
+.form__group .select{
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+}
+
+select, .select::after{
+    grid-area: select;
+}
+
+.form__group .select::after{
+    content: '';
+    width: 0.8em;
+    height: .5em;
+    background-color: var(--secondary-color);
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    justify-self: end;
+}
+

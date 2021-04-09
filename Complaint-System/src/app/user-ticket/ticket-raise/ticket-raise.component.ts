@@ -10,7 +10,7 @@ import { Ticket } from 'src/app/Models/Ticket/ticket';
 export class TicketRaiseComponent implements OnInit {
 
   // ticket = new Ticket(..., '',);
-  types = ["technical", "mon-technical"];
+  types = ["technical", "mon-technical", "other"];
   priority  = ["low", "medium", "high"]
 
   constructor(private raiseticket: EnrollmentService) { }
