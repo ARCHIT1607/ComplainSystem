@@ -42,7 +42,7 @@ public class TicketController {
 		return new ResponseEntity<>(ticketService.addTicket(ticket), HttpStatus.CREATED);
 	}
 
-	@PutMapping(value = "/updateTicket")
+	@PutMapping(value = "/admin/updateTicket")
 	public ResponseEntity<Map<Object, Object>> updateTicket(HttpServletRequest request, @RequestBody Ticket ticket) throws ComplaintSystemException{
 		Map<Object, Object> map = new HashMap();
 		try {
