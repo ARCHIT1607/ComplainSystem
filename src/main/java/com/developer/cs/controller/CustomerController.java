@@ -37,19 +37,20 @@ public class CustomerController {
 	private CustomerService customerService;
 
 	@PostMapping(value = "/register")
-	public ResponseEntity<Map<String, Object>> register(@RequestBody Customer customer) {
+	public ResponseEntity<Customer> register(@RequestBody Customer customer) {
 		log.info("register controller");
 		Customer cus = customerService.register(customer);
-		return new ResponseEntity<>(generateJWTToken(cus), HttpStatus.OK);
+		return new ResponseEntity<>(cus, HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/login")
-	public ResponseEntity<Map<String, Object>> login(HttpServletRequest request, @RequestBody Customer customer) {
+	public ResponseEntity<Map<String, Object>> login(@RequestBody Customer customer) {
 		log.info("login controller");
 		Boolean valid = customerService.validate(customer.getEmail(), customer.getPassword());
 		if(valid == true) {
-			long userId = (Long) request.getAttribute("userId");
-			customer.setId(userId);
+			Customer validCustomer = customerService.getUserByEmail(customer.getEmail());
+			customer.setId(validCustomer.getId());
+			customer.setUsername(validCustomer.getUsername());
 			return new ResponseEntity<>(generateJWTToken(customer), HttpStatus.OK);
 		}
 		else {

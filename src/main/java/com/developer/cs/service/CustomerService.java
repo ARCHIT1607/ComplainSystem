@@ -47,4 +47,9 @@ public class CustomerService {
 	public List<Customer> getUserDetails() {
 		return customerRepository.findAll();
 	}
+
+	public Customer getUserByEmail(String email) {
+		Customer cus = getCustomer(email);
+		return cus;
+	}
 }
