@@ -9,6 +9,7 @@ import { Ticket } from './Models/Ticket/ticket';
 export class EnrollmentService {
   registerUrl = "http://localhost:8086/api/register";
   submitTicketUrl = "";
+  getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
   constructor(private http: HttpClient) { }
 
   // Service to Register a User
@@ -20,4 +21,9 @@ export class EnrollmentService {
   submitTicket(ticket: Ticket){
     return this.http.post<any>(this.submitTicketUrl, ticket)
   }
+
+  // Service to get ticket
+  // getTicket(user: User){
+  //   return this.http.get<any>(this.getTicketUrl, user);
+  // }
 }

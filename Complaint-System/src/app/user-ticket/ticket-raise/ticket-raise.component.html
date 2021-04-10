@@ -1,45 +1,33 @@
 <div class="form__container">
-    <form #ticketForm = "ngForm">
+    <form #ticketForm = "ngForm" (ngSubmit)="onSubmit(ticketForm.value)">
         <div class="form__group">
             <label for="title">Incident Title</label>
-            <input type="text" name="title" id="title" placeholder="E.g. Internet Issue">
+            <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" [(ngModel)]="ticket.ticketTitle" required>
         </div>
         <div class="form__group">
             <label for="desc">Incident Description</label>
             <!-- <input type="text" name="desc" id="desc"> -->
-            <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning."></textarea>
+            <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." [(ngModel)]="ticket.ticketDesc" required></textarea>
         </div>
         <div class="form__group">
             <label for="types">Incident Type</label>
             <!-- <input type="text" name="type" id="type"> -->
             <div class="select">
-                <select name="types" id="types">
+                <select name="types" id="types" [(ngModel)]="ticket.ticketType" required>
                     <option selected>Select an incident type</option>
-                    <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+                    <option *ngFor="let type of types" [value]="type">{{ type | titlecase}}</option>
                 </select>
             </div>
         </div>
         <div class="form__group">
-            <label for="">Incident Priority</label>
+            <label for="priority">Incident Priority</label>
             <div class="select">
-                <select name="types" id="types">
+                <select name="priority" id="types" [(ngModel)]="ticket.ticketPriority" required>
                     <option selected>Select Priority of the incident</option>
-                    <option *ngFor="let prior of priority" [value]="prior">{{ prior }}</option>
+                    <option *ngFor="let prior of priority" [value]="prior">{{ prior | titlecase }}</option>
                 </select>
             </div>
         </div>
-        <!-- <div class="form__group">
-            <label for=""></label>
-            <input type="text" name="" id="">
-        </div>
-        <div class="form__group">
-            <label for=""></label>
-            <input type="text" name="" id="">
-        </div>
-        <div class="form__group">
-            <label for=""></label>
-            <input type="text" name="" id="">
-        </div> -->
         <div class="form__group">
             <button type="submit">Submit Ticket</button>
         </div>

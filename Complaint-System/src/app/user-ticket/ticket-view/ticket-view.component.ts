@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from 'src/app/enrollment.service';
 
 @Component({
   selector: 'app-ticket-view',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
   }
 
+  
 }

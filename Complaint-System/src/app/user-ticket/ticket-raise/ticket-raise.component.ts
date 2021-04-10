@@ -9,8 +9,8 @@ import { Ticket } from 'src/app/Models/Ticket/ticket';
 })
 export class TicketRaiseComponent implements OnInit {
 
-  // ticket = new Ticket(..., '',);
-  types = ["technical", "mon-technical", "other"];
+  ticket = new Ticket('', '', '', '');
+  types = ["technical", "non-technical", "other"];
   priority  = ["low", "medium", "high"]
 
   constructor(private raiseticket: EnrollmentService) { }
@@ -18,8 +18,8 @@ export class TicketRaiseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // onSubmit(){
-  //   console.log(this.)
-  // }
+  onSubmit(ticket:any){
+    console.log(ticket);
+  }
 
 }

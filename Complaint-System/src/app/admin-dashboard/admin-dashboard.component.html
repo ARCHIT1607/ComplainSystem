@@ -1,1 +1,95 @@
-<p>admin-dashboard works!</p>
+<section class="padding">
+    <div class="ticket__container">
+        <div class="ticket__body">
+            <h1 class="ticket__title">First Ticket</h1>
+            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit</p>
+            <div class="ticket__creator">
+                <h6 class="ticket__author">- Archit</h6>
+                <h6 class="ticket__created">05/04/2021</h6>
+            </div>
+            <div class="ticket__stat">
+                <h6 class="ticket__priority">Medium</h6>
+                <h6 class="ticket__status">In-Progress</h6>
+            </div>
+            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
+        </div>
+        <div class="ticket__body">
+            <h1 class="ticket__title">Second Ticket</h1>
+            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore, nam saepe</p>
+            <div class="ticket__creator">
+                <h6 class="ticket__author">- Archit</h6>
+                <h6 class="ticket__created">05/04/2021</h6>
+            </div>
+            <div class="ticket__stat">
+                <h6 class="ticket__priority">Medium</h6>
+                <h6 class="ticket__status">In-Progress</h6>
+            </div>
+            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
+        </div>
+        <div class="ticket__body">
+            <h1 class="ticket__title">Third Ticket</h1>
+            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore</p>
+            <div class="ticket__creator">
+                <h6 class="ticket__author">- Archit</h6>
+                <h6 class="ticket__created">05/04/2021</h6>
+            </div>
+            <div class="ticket__stat">
+                <h6 class="ticket__priority">Medium</h6>
+                <h6 class="ticket__status">In-Progress</h6>
+            </div>
+            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
+        </div>
+        <div class="ticket__body">
+            <h1 class="ticket__title">Fourth Ticket</h1>
+            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore, nam saepe perspiciatis quasi similique quibusdam doloribus quae amet modi!</p>
+            <div class="ticket__creator">
+                <h6 class="ticket__author">- Archit</h6>
+                <h6 class="ticket__created">05/04/2021</h6>
+            </div>
+            <div class="ticket__stat">
+                <h6 class="ticket__priority">Medium</h6>
+                <h6 class="ticket__status">In-Progress</h6>
+            </div>
+            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
+        </div>
+    </div>
+</section>
+<section class="ticket__form" *ngIf="!hide">
+    <div class="form__container">
+        <a class="form__close" (click)="toggleForm()">X</a>
+        <form #ticketForm = "ngForm">
+            <div class="form__group">
+                <label for="title">Incident Title</label>
+                <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" >
+            </div>
+            <div class="form__group">
+                <label for="desc">Incident Description</label>
+                <!-- <input type="text" name="desc" id="desc"> -->
+                <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." required></textarea>
+            </div>
+            <div class="form__group">
+                <label for="types">Incident Type</label>
+                <input type="text" name="type" id="type">
+                <!-- <div class="select">
+                    <select name="types" id="types" [(ngModel)]="ticket.ticketType" required>
+                        <option selected>Select an incident type</option>
+                        <option *ngFor="let type of types" [value]="type">{{ type | titlecase}}</option>
+                    </select>
+                </div> -->
+            </div>
+            <div class="form__group">
+                <label for="priority">Incident Priority</label>
+                <input type="text" name="type" id="type">
+                <!-- <div class="select">
+                    <select name="priority" id="types" [(ngModel)]="ticket.ticketPriority" required>
+                        <option selected>Select Priority of the incident</option>
+                        <option *ngFor="let prior of priority" [value]="prior">{{ prior | titlecase }}</option>
+                    </select>
+                </div> -->
+            </div>
+            <div class="form__group">
+                <button type="submit">Submit Ticket</button>
+            </div>
+        </form>
+    </div>
+</section>

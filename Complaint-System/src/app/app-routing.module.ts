@@ -15,19 +15,27 @@ const routes: Routes = [
     redirectTo: '/auth',
     pathMatch: 'full'
   },
+  // {
+  //   path: 'auth', 
+  //   component: AuthenticationComponent,
+  //   children: [
+  //     {
+  //       path: 'register',
+  //       component: RegisterComponent
+  //     },
+  //     {
+  //       path: 'login',
+  //       component: LoginComponent
+  //     }
+  //   ]
+  // },
   {
-    path: 'auth', 
-    component: AuthenticationComponent,
-    children: [
-      {
-        path: 'register',
-        component: RegisterComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      }
-    ]
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'user-dashboard',
