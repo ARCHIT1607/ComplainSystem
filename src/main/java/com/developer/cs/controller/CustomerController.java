@@ -37,10 +37,10 @@ public class CustomerController {
 	private CustomerService customerService;
 
 	@PostMapping(value = "/register")
-	public ResponseEntity<Customer> register(@RequestBody Customer customer) {
+	public ResponseEntity<Map<String, Object>> register(@RequestBody Customer customer) {
 		log.info("register controller");
 		Customer cus = customerService.register(customer);
-		return new ResponseEntity<>(cus, HttpStatus.OK);
+		return new ResponseEntity<>(generateJWTToken(customer), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/login")
@@ -55,8 +55,8 @@ public class CustomerController {
 		}
 		else {
 			Map<String, Object> map = new HashMap();
-			 map.put("Invalid", "Invalid Customer");
-			return new ResponseEntity<>(map,HttpStatus.FORBIDDEN);
+			 map.put("errorMessage", "Password is incorrect");
+			return new ResponseEntity<>(map,HttpStatus.UNAUTHORIZED);
 		}
 	}
 

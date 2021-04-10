@@ -31,10 +31,19 @@ public class TicketController {
 	TicketService ticketService;
 
 	@GetMapping(value = "/getAllTicketsByCustomer")
-	public ResponseEntity<List<Ticket>> getAllTicketsByCustomer(HttpServletRequest request){
+	public ResponseEntity<Map<Object, Object>> getAllTicketsByCustomer(HttpServletRequest request
+			)throws ComplaintSystemException{
 		long userId = (Long) request.getAttribute("userId");
-		List<Ticket> tickets = ticketService.getAllTicketsByCustomer(userId);
-		return new ResponseEntity<>(tickets, HttpStatus.OK);
+		Map<Object, Object> result = new HashMap<Object, Object>();
+		try {
+			result.put("success", "true");
+			result.put("data",ticketService.getAllTicketsByCustomer(userId));
+			return new ResponseEntity<>(result, HttpStatus.OK);
+		} catch (ComplaintSystemException e) {
+			result.put("success", "false");
+			result.put("message", e.getMessage());
+			return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+		}
 	}
 
 	@GetMapping(value = "/admin/getAllTickets")
@@ -49,7 +58,8 @@ public class TicketController {
 	}
 
 	@PutMapping(value = "/admin/updateTicket")
-	public ResponseEntity<Map<Object, Object>> updateTicket(HttpServletRequest request, @RequestBody Ticket ticket) throws ComplaintSystemException{
+	public ResponseEntity<Map<Object, Object>> updateTicket(HttpServletRequest request,
+			@RequestBody Ticket ticket) throws ComplaintSystemException{
 		Map<Object, Object> map = new HashMap();
 		try {
 			long userId = (Long) request.getAttribute("userId");
@@ -59,7 +69,7 @@ public class TicketController {
 		} catch (ComplaintSystemException e) {
 			map.put("success", "false");
 			map.put("message", e.getMessage());
-			return new ResponseEntity<>(map, HttpStatus.OK);
+			return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
 		}
 	}
 
