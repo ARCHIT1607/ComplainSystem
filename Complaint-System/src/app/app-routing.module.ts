@@ -7,6 +7,7 @@ import { UserTicketComponent } from './user-ticket/user-ticket.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { TicketViewComponent } from './user-ticket/ticket-view/ticket-view.component';
 import { TicketRaiseComponent } from './user-ticket/ticket-raise/ticket-raise.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserTicketComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin-dashboard',

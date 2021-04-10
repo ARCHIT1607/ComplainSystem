@@ -1,12 +1,50 @@
-
-
-.form__box{
+.register{
+    /* height: 90vh; */
     width: 100%;
-    /* padding: 10rem 22rem; */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* background-color: red; */
+    /* background: linear-gradient(135deg, var(--primary-color) 50%, transparent 50%, transparent); */
+}
+
+.register__image{
+    background-color: var(--secondary-color);
+}
+
+.register__form{
+    background-color: var(--color-light);
+}
+
+.register__image, .register__form{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem 0;
+}
+
+.image__text{
+    padding: 0 3rem;
     /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
+}
+
+.image__text h1{
+    font-size: 3rem;
+    color: var(--color-light);
+    padding-bottom: 1.5rem;
+}
+
+.image__text p{
+    font-size: 1.5rem;  
+    color: var(--secondary-color-light);
+    line-height: 1.5;
+    letter-spacing: .15rem;
+}
+
+.form__box{
+    width: 100%;
 }
 
 .form__title{

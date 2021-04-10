@@ -8,6 +8,7 @@ import { Ticket } from './Models/Ticket/ticket';
 })
 export class EnrollmentService {
   registerUrl = "http://localhost:8086/api/register";
+  loginUrl = "http://localhost:8086/api/login";
   submitTicketUrl = "";
   getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
   constructor(private http: HttpClient) { }
@@ -15,6 +16,10 @@ export class EnrollmentService {
   // Service to Register a User
   register(user: User){
     return this.http.post<any>(this.registerUrl, user)
+  }
+
+  login(user: User){
+    return this.http.post<any>(this.loginUrl, user)
   }
 
   // Service to submit ticket
@@ -26,4 +31,8 @@ export class EnrollmentService {
   // getTicket(user: User){
   //   return this.http.get<any>(this.getTicketUrl, user);
   // }
+
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
 }
