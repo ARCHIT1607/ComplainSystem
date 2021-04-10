@@ -37,6 +37,12 @@ public class TicketController {
 		return new ResponseEntity<>(tickets, HttpStatus.OK);
 	}
 
+	@GetMapping(value = "/admin/getAllTickets")
+	public ResponseEntity<List<Ticket>> getAllTickets(){
+		List<Ticket> tickets = ticketService.getAllTickets();
+		return new ResponseEntity<>(tickets, HttpStatus.OK);
+	}
+
 	@PostMapping(value = "/addTicket")
 	public ResponseEntity<Ticket> addTicket(@RequestBody Ticket ticket){
 		return new ResponseEntity<>(ticketService.addTicket(ticket), HttpStatus.CREATED);

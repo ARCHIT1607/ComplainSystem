@@ -60,11 +60,11 @@ public class CustomerController {
 		}
 	}
 
-//	@GetMapping(value = "/getUserDetails")
-//	public List<Customer> getUserDetails(){
-//		log.info("GetUserDetails Controller");
-//		return customerService.getUserDetails();
-//	}
+	@GetMapping(value = "/getUserDetails")
+	public List<Customer> getUserDetails(){
+		log.info("GetUserDetails Controller");
+		return customerService.getUserDetails();
+	}
 
 	/* Code to generate JWT */
 	private Map<String, Object> generateJWTToken(Customer user) {

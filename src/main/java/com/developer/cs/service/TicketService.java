@@ -54,4 +54,9 @@ public class TicketService {
 			map.put("ticket", oldTicket);
 			return map;
 	}
+
+	public List<Ticket> getAllTickets() {
+		 List<Ticket> getAllTickets = ticketRepository.findAll();
+		return getAllTickets;
+	}
 }
