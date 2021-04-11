@@ -34,7 +34,7 @@ public class AuthFilter extends GenericFilterBean {
         httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
         httpResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         httpResponse.setHeader("Access-Control-Max-Age", "3600");
-        httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
+        httpResponse.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me, Authorization");
         if(authHeader != null) {
             String[] authHeaderArr = authHeader.split("Bearer ");
             if(authHeaderArr.length > 1 && authHeaderArr[1] != null) {

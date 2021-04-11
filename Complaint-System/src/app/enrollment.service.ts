@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class EnrollmentService {
   registerUrl = "http://localhost:8086/api/register";
   loginUrl = "http://localhost:8086/api/login";
-  submitTicketUrl = "";
+  submitTicketUrl = "http://localhost:8086/ticket/addTicket";
   getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
   
   constructor(private http: HttpClient,
@@ -26,14 +26,18 @@ export class EnrollmentService {
     return this.http.post<any>(this.loginUrl, user)
   }
 
+  raiseTicket(ticket: Ticket){
+    return this.http.post<any>(this.submitTicketUrl, ticket)
+  }
+
   // Service to submit ticket
   submitTicket(ticket: Ticket){
     return this.http.post<any>(this.submitTicketUrl, ticket)
   }
 
   // Service to get ticket
-  getUserTicket(): Observable<Ticket[]>{
-    return this.http.get<Ticket[]>(this.getTicketUrl);
+  getUserTicket(){
+    return this.http.get(this.getTicketUrl);
   }
 
   loggedIn(){

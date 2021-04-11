@@ -15,7 +15,7 @@
     background-color: #ffffff;
     color: var(--color-dark);
     border-radius: .5rem;
-    border: .01rem solid var(--color-dark); 
+    border: .01rem solid var(--color-dark);
 }
 
 .ticket__body::before{
@@ -48,6 +48,7 @@
     line-height: 1.2;
     text-align: justify;
     margin-bottom: 1rem;
+    word-wrap: break-word;
 }
 
 .ticket__body .ticket__stat, .ticket__body .ticket__creator{

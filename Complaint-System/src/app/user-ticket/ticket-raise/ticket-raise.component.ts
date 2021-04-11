@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EnrollmentService } from 'src/app/enrollment.service';
 import { Ticket } from 'src/app/Models/Ticket/ticket';
 
@@ -9,17 +10,25 @@ import { Ticket } from 'src/app/Models/Ticket/ticket';
 })
 export class TicketRaiseComponent implements OnInit {
 
-  ticket = new Ticket('', '', '', '');
+  public ticket:any = []
   types = ["technical", "non-technical", "other"];
   priority  = ["low", "medium", "high"]
 
-  constructor(private raiseticket: EnrollmentService) { }
+  constructor(private raiseticket: EnrollmentService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(ticket:any){
     console.log(ticket);
+    this.raiseticket.raiseTicket(ticket)
+    .subscribe(
+      data => {console.log('Success!', data),
+              this.router.navigate(['user-dashboard'])
+    },
+      error => console.error('Error!', error)
+    )
   }
 
 }

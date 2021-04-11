@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnrollmentService } from 'src/app/enrollment.service';
+import { Ticket } from 'src/app/Models/Ticket/ticket';
 
 @Component({
   selector: 'app-ticket-view',
@@ -8,13 +9,18 @@ import { EnrollmentService } from 'src/app/enrollment.service';
 })
 export class TicketViewComponent implements OnInit {
 
-  public ticket = []
+  public ticket:any = []
+  public userTicket:any = []
   constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
       this.enrollService.getUserTicket()
-      .subscribe(data => this.ticket = data);
-      console.log(this.ticket)
+      .subscribe(data => {
+        console.log(data, typeof data),
+        this.ticket = Array.from(Object.keys(data), k=>data[k]),
+        console.log(this.ticket[1]),
+        this.userTicket = this.ticket[0]});
+      
   }
 
   

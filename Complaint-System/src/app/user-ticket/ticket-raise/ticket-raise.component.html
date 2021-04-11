@@ -7,13 +7,13 @@
         <div class="form__group">
             <label for="desc">Incident Description</label>
             <!-- <input type="text" name="desc" id="desc"> -->
-            <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." [(ngModel)]="ticket.ticketDesc" required></textarea>
+            <textarea name="description" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." [(ngModel)]="ticket.ticketDesc" required></textarea>
         </div>
         <div class="form__group">
             <label for="types">Incident Type</label>
             <!-- <input type="text" name="type" id="type"> -->
             <div class="select">
-                <select name="types" id="types" [(ngModel)]="ticket.ticketType" required>
+                <select name="type" id="types" [(ngModel)]="ticket.ticketType" required>
                     <option selected>Select an incident type</option>
                     <option *ngFor="let type of types" [value]="type">{{ type | titlecase}}</option>
                 </select>
