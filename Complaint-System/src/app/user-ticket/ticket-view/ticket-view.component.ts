@@ -8,9 +8,13 @@ import { EnrollmentService } from 'src/app/enrollment.service';
 })
 export class TicketViewComponent implements OnInit {
 
+  public ticket = []
   constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
+      this.enrollService.getUserTicket()
+      .subscribe(data => this.ticket = data);
+      console.log(this.ticket)
   }
 
   

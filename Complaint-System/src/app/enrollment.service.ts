@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './Models/User/user';
 import { Ticket } from './Models/Ticket/ticket';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class EnrollmentService {
   loginUrl = "http://localhost:8086/api/login";
   submitTicketUrl = "";
   getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
+  
   constructor(private http: HttpClient,
               private route: Router) { }
 
@@ -30,9 +32,9 @@ export class EnrollmentService {
   }
 
   // Service to get ticket
-  // getTicket(user: User){
-  //   return this.http.get<any>(this.getTicketUrl, user);
-  // }
+  getUserTicket(): Observable<Ticket[]>{
+    return this.http.get<Ticket[]>(this.getTicketUrl);
+  }
 
   loggedIn(){
     return !!localStorage.getItem('token')
