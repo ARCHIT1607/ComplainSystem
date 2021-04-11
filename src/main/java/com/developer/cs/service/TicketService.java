@@ -23,7 +23,8 @@ public class TicketService {
 
 	public List<Ticket>getAllTicketsByCustomer(Long userId) throws ComplaintSystemException{
 		List<Ticket> getAllTicketsByCustomer = ticketRepository.getAllTicketsByCustomer(userId);
-		if (getAllTicketsByCustomer ==null && getAllTicketsByCustomer.size() <=0 ) {
+		if (getAllTicketsByCustomer.size() == 0 ) {
+			System.out.println("exception");
 			throw new ComplaintSystemException("No tickets present for customer");
 		}
 		return getAllTicketsByCustomer;
