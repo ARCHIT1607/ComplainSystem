@@ -53,7 +53,10 @@ public class TicketController {
 	}
 
 	@PostMapping(value = "/addTicket")
-	public ResponseEntity<Ticket> addTicket(@RequestBody Ticket ticket){
+	public ResponseEntity<Ticket> addTicket(HttpServletRequest request,
+			@RequestBody Ticket ticket){
+		long userId = (Long) request.getAttribute("userId");
+		ticket.setUserId(userId);
 		return new ResponseEntity<>(ticketService.addTicket(ticket), HttpStatus.CREATED);
 	}
 
