@@ -21,14 +21,12 @@ public class TicketService {
 	@Autowired
 	TicketRepository ticketRepository;
 
-	public Map<Object, Object> getAllTicketsByCustomer(Long userId) throws ComplaintSystemException{
-		Map<Object, Object> resultMap = new HashMap<Object, Object>();
+	public List<Ticket>getAllTicketsByCustomer(Long userId) throws ComplaintSystemException{
 		List<Ticket> getAllTicketsByCustomer = ticketRepository.getAllTicketsByCustomer(userId);
 		if (getAllTicketsByCustomer ==null && getAllTicketsByCustomer.size() <=0 ) {
 			throw new ComplaintSystemException("No tickets present for customer");
 		}
-		resultMap.put("data", getAllTicketsByCustomer);
-		return resultMap;
+		return getAllTicketsByCustomer;
 	}
 
 	public Ticket addTicket(Ticket ticket) {
