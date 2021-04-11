@@ -4,8 +4,9 @@
     </div>
     <div class="navbar__links">
         <ul>
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/register">Register</a></li>
+            <li><a routerLink="/login" *ngIf = "!enroll.loggedIn()">Login</a></li>
+            <li><a routerLink="/register" *ngIf = "!enroll.loggedIn()">Register</a></li>
+            <li><a routerLink="/" *ngIf = "enroll.loggedIn()" (click)="enroll.logoutUser()">Logout</a></li>
         </ul>
     </div>
 </nav>

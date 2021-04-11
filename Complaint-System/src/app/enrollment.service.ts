@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './Models/User/user';
 import { Ticket } from './Models/Ticket/ticket';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class EnrollmentService {
   loginUrl = "http://localhost:8086/api/login";
   submitTicketUrl = "";
   getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private route: Router) { }
 
   // Service to Register a User
   register(user: User){
@@ -34,5 +36,16 @@ export class EnrollmentService {
 
   loggedIn(){
     return !!localStorage.getItem('token')
+  }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+    console.log("Token Deleted")
+    this.route.navigate(['/login'])
+
+  }
+
+  getToken(){
+    return localStorage.getItem('token')
   }
 }

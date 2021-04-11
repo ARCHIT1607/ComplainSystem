@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from '../enrollment.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public enroll: EnrollmentService) { }
 
+  checkLogin: boolean;
   ngOnInit(): void {
-  }
-
+  }  
 }
