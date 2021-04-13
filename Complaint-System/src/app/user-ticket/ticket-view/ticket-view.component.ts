@@ -11,6 +11,13 @@ export class TicketViewComponent implements OnInit {
 
   public ticket:any = []
   public userTicket:any = []
+  public outsideTicket:any = []
+  public priority:any = []
+  public mediumPriority: boolean
+  // public highPriority: boolean
+  public inProgressStatus:boolean
+  public completedStatus:boolean
+
   constructor(private enrollService: EnrollmentService) { }
 
   ngOnInit(): void {
@@ -19,9 +26,24 @@ export class TicketViewComponent implements OnInit {
         console.log(data, typeof data),
         this.ticket = Array.from(Object.keys(data), k=>data[k]),
         console.log(this.ticket[1]),
-        this.userTicket = this.ticket[0]});
+        this.userTicket = this.ticket[0],
+      this.useTicket(this.userTicket)},
+      error => console.log("Error", error));
       
   }
 
-  
+  useTicket(data:any){
+    this.outsideTicket = data
+
+    for(let obj of this.outsideTicket){
+      for( let key in obj){
+        if(key === "priority"){
+          console.log("Priority: ", obj[key])
+          this.priority = obj[key]
+        }
+      }
+    }
+    return this.priority
+  }
+
 }

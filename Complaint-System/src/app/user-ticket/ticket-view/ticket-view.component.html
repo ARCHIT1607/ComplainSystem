@@ -7,8 +7,21 @@
             <h6 class="ticket__created">{{ ticket.create_date}}</h6>
         </div>
         <div class="ticket__stat">
-            <h6 class="ticket__priority">{{ ticket.priority }}</h6>
-            <h6 class="ticket__status">{{ ticket.status }}</h6>
+            <!-- <h6 class="ticket__priority">{{ ticket.priority }}</h6>
+            <h6 class="ticket__status">{{ ticket.status }}</h6> -->
+            <h6 class="ticket__priority"
+                [ngClass]="{'ticket__priority--low': ticket.priority === 'low',
+                            'ticket__priority--medium': ticket.priority === 'medium',
+                            'ticket__priority--high': ticket.priority === 'high'}">
+                {{ ticket.priority }}
+            </h6>
+            <h6 class="ticket__status"
+                [ngClass]="{'ticket__status--created': ticket.status === 'Created',
+                            'ticket__status--inProgress': ticket.status === 'In-Progress',
+                            'ticket__status--completed': ticket.status === 'Completed'}"
+                >
+                {{ ticket.status }}
+            </h6>
         </div>
     </div>
 </div>
