@@ -49,6 +49,7 @@ public class TicketService {
 				if (ticket.getStatus() != null && !ticket.getStatus().isEmpty()) {
 					oldTicket.setUpdate_date(strDate);
 					oldTicket.setStatus(ticket.getStatus());
+					ticketRepository.save(oldTicket);
 				} else {
 					System.out.println("Status is empty");
 					throw new ComplaintSystemException("Status is empty");
