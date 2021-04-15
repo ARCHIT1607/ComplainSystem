@@ -13,6 +13,9 @@ export class EnrollmentService {
   loginUrl = "http://localhost:8086/api/login";
   submitTicketUrl = "http://localhost:8086/ticket/addTicket";
   getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
+  getAllTicketsUrl = "http://localhost:8086/ticket/admin/getAllTickets";
+  getTicketByIdUrl = "http://localhost:8086/ticket/admin/getAllTicketById/";
+  updateTicketUrl = "http://localhost:8086/ticket/admin/updateTicket";
   
   constructor(private http: HttpClient,
               private route: Router) { }
@@ -38,6 +41,18 @@ export class EnrollmentService {
   // Service to get ticket
   getUserTicket(){
     return this.http.get(this.getTicketUrl);
+  }
+
+  getAllTickets(){
+    return this.http.get(this.getAllTicketsUrl);
+  }
+
+  getTicketById(index){
+    return this.http.get(this.getTicketByIdUrl+index);
+  }
+
+  updateTicket(updatedTicket: Ticket){
+    return this.http.put<any>(this.updateTicketUrl, updatedTicket);
   }
 
   loggedIn(){

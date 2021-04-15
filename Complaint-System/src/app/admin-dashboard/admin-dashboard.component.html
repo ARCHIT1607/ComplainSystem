@@ -1,75 +1,49 @@
 <section class="padding">
     <div class="ticket__container">
-        <div class="ticket__body">
-            <h1 class="ticket__title">First Ticket</h1>
-            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit</p>
+        <div class="ticket__body" *ngFor="let ticket of userTicket;let i=index">
+            <h1 class="ticket__title">{{ ticket.title }}</h1>
+            <p class="ticket__desc">{{ ticket.description }}</p>
             <div class="ticket__creator">
-                <h6 class="ticket__author">- Archit</h6>
-                <h6 class="ticket__created">05/04/2021</h6>
+                <h6 class="ticket__author">- {{ ticket.created_by }}</h6>
+                <h6 class="ticket__created">{{ ticket.create_date }}</h6>
             </div>
             <div class="ticket__stat">
-                <h6 class="ticket__priority">Medium</h6>
-                <h6 class="ticket__status">In-Progress</h6>
+                <!-- <h6 class="ticket__priority">{{ ticket.priority }}</h6>
+                <h6 class="ticket__status">{{ ticket.status }}</h6> -->
+                <h6 class="ticket__priority"
+                [ngClass]="{'ticket__priority--low': ticket.priority === 'low',
+                            'ticket__priority--medium': ticket.priority === 'medium',
+                            'ticket__priority--high': ticket.priority === 'high'}">
+                {{ ticket.priority }}
+            </h6>
+            <h6 class="ticket__status"
+                [ngClass]="{'ticket__status--created': ticket.status === 'Created',
+                            'ticket__status--inProgress': ticket.status === 'In-Progress',
+                            'ticket__status--completed': ticket.status === 'Completed'}">
+                {{ ticket.status }}
+            </h6>
             </div>
-            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
-        </div>
-        <div class="ticket__body">
-            <h1 class="ticket__title">Second Ticket</h1>
-            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore, nam saepe</p>
-            <div class="ticket__creator">
-                <h6 class="ticket__author">- Archit</h6>
-                <h6 class="ticket__created">05/04/2021</h6>
-            </div>
-            <div class="ticket__stat">
-                <h6 class="ticket__priority">Medium</h6>
-                <h6 class="ticket__status">In-Progress</h6>
-            </div>
-            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
-        </div>
-        <div class="ticket__body">
-            <h1 class="ticket__title">Third Ticket</h1>
-            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore</p>
-            <div class="ticket__creator">
-                <h6 class="ticket__author">- Archit</h6>
-                <h6 class="ticket__created">05/04/2021</h6>
-            </div>
-            <div class="ticket__stat">
-                <h6 class="ticket__priority">Medium</h6>
-                <h6 class="ticket__status">In-Progress</h6>
-            </div>
-            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
-        </div>
-        <div class="ticket__body">
-            <h1 class="ticket__title">Fourth Ticket</h1>
-            <p class="ticket__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magni facilis suscipit, quam maiores ea dignissimos cumque nesciunt odio, dolore, nam saepe perspiciatis quasi similique quibusdam doloribus quae amet modi!</p>
-            <div class="ticket__creator">
-                <h6 class="ticket__author">- Archit</h6>
-                <h6 class="ticket__created">05/04/2021</h6>
-            </div>
-            <div class="ticket__stat">
-                <h6 class="ticket__priority">Medium</h6>
-                <h6 class="ticket__status">In-Progress</h6>
-            </div>
-            <a class="ticket__edit" (click)="toggleForm()">Edit Ticket</a>
+            <a class="ticket__edit" (click)="toggleForm(); addFormData(ticket, ticket.id)">Edit Ticket</a>
+            <p>{{ i }}</p>
         </div>
     </div>
 </section>
 <section class="ticket__form" *ngIf="!hide">
     <div class="form__container">
         <a class="form__close" (click)="toggleForm()">X</a>
-        <form #ticketForm = "ngForm">
+        <form #ticketForm = "ngForm" novalidate (ngSubmit)="onSubmit(ticketForm.value)">
             <div class="form__group">
                 <label for="title">Incident Title</label>
-                <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" >
+                <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" [(ngModel)]="formData.title"  disabled>
             </div>
             <div class="form__group">
                 <label for="desc">Incident Description</label>
                 <!-- <input type="text" name="desc" id="desc"> -->
-                <textarea name="desc" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." required></textarea>
+                <textarea name="description" id="desc" cols="30" rows="3" placeholder="E.g. Wifi adapter not working properly since morning." [(ngModel)]="formData.description" disabled></textarea>
             </div>
             <div class="form__group">
                 <label for="types">Incident Type</label>
-                <input type="text" name="type" id="type">
+                <input type="text" name="type" id="type" [(ngModel)]="formData.type" disabled>
                 <!-- <div class="select">
                     <select name="types" id="types" [(ngModel)]="ticket.ticketType" required>
                         <option selected>Select an incident type</option>
@@ -79,7 +53,7 @@
             </div>
             <div class="form__group">
                 <label for="priority">Incident Priority</label>
-                <input type="text" name="type" id="type">
+                <input type="text" name="priority" id="priority" [(ngModel)]="formData.priority" disabled>
                 <!-- <div class="select">
                     <select name="priority" id="types" [(ngModel)]="ticket.ticketPriority" required>
                         <option selected>Select Priority of the incident</option>
@@ -88,7 +62,13 @@
                 </div> -->
             </div>
             <div class="form__group">
-                <button type="submit">Submit Ticket</button>
+                <label for="staus">Incident Status</label>
+                <select name="status" id="status" [(ngModel)]="formData.status" >
+                    <option *ngFor="let stat of status" [value]="stat">{{ stat | titlecase }}</option>
+                </select>
+                </div>
+            <div class="form__group">
+                <button type="submit">Update Ticket</button>
             </div>
         </form>
     </div>

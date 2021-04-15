@@ -52,6 +52,7 @@
     line-height: 1.2;
     text-align: justify;
     margin-bottom: 1rem;
+    word-wrap: break-word;
 }
 
 .ticket__body .ticket__stat, .ticket__body .ticket__creator{
@@ -68,10 +69,23 @@
     font-weight: 700;
     text-transform: uppercase;
     padding: .5rem 1rem;
-    background-color: var(--secondary-color-light);
     border-radius: .5rem;
     margin-right: .5rem;
     margin-bottom: 2rem;
+}
+
+.ticket__stat .ticket__priority--low, .ticket__stat .ticket__status--created{
+    background-color: var(--secondary-color-light);
+}
+
+.ticket__stat .ticket__priority--medium, .ticket__stat .ticket__status--inProgress{
+    background-color: var(--secondary-color);
+    color: var(--color-light)
+}
+
+.ticket__stat .ticket__priority--high, .ticket__stat .ticket__staus--completed{
+    background-color: var(--color-dark);
+    color: var(--color-light);
 }
 
 .ticket__creator .ticket__author, .ticket__creator .ticket__created{
