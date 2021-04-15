@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EnrollmentService } from '../enrollment.service';
+import { Ticket } from '../Models/Ticket/ticket';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -42,8 +43,9 @@ export class AdminDashboardComponent implements OnInit {
               error => console.error("Error", error))
   }
 
-  onSubmit(updatedTicket:any){
-    this.enrollService.updateTicket(updatedTicket)
+  onSubmit(){
+    console.log("On Submit"+this.ticket)
+    this.enrollService.updateTicket(this.formData)
       .subscribe(
         data => {console.log('Success!', data)
       },

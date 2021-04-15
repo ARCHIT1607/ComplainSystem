@@ -31,10 +31,11 @@
 <section class="ticket__form" *ngIf="!hide">
     <div class="form__container">
         <a class="form__close" (click)="toggleForm()">X</a>
-        <form #ticketForm = "ngForm" novalidate (ngSubmit)="onSubmit(ticketForm.value)">
+        <form #ticketForm = "ngForm" novalidate (ngSubmit)="onSubmit()">
+            {{ ticketForm.value | json }}
             <div class="form__group">
                 <label for="title">Incident Title</label>
-                <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" [(ngModel)]="formData.title"  disabled>
+                <input type="text" name="title" id="title" placeholder="E.g. Internet Issue" [(ngModel)]="formData.title" disabled>
             </div>
             <div class="form__group">
                 <label for="desc">Incident Description</label>

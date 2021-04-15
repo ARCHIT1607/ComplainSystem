@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
     this.enrollService.login(loginForm)
       .subscribe(
         data => {console.log('Success!', data)
+                console.log(data.customer.role)
                 localStorage.setItem('token', data.token)
-                this.router.navigate(['/user-dashboard'])
+                data.customer.role === "customer" ? this.router.navigate(['/user-dashboard']) : this.router.navigate(['/admin-dashboard'])
       },
         error => console.error('Error!', error)
       )
