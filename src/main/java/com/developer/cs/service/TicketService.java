@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -63,5 +64,10 @@ public class TicketService {
 	public List<Ticket> getAllTickets() {
 		 List<Ticket> getAllTickets = ticketRepository.findAll();
 		return getAllTickets;
+	}
+
+	public Ticket getTicketById(Long ticketId) {
+		Ticket ticket = ticketRepository.findByTicketId(ticketId);
+		return ticket;
 	}
 }

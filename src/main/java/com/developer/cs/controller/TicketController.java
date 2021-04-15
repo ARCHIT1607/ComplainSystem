@@ -52,6 +52,12 @@ public class TicketController {
 		return new ResponseEntity<>(tickets, HttpStatus.OK);
 	}
 
+	@GetMapping(value = "/admin/getAllTicketById/{id}")
+	public ResponseEntity<Ticket> getTicketById(@PathVariable("id") Long ticketId){
+		Ticket ticket = ticketService.getTicketById(ticketId);
+		return new ResponseEntity<>(ticket, HttpStatus.OK);
+	}
+
 	@PostMapping(value = "/addTicket")
 	public ResponseEntity<Ticket> addTicket(HttpServletRequest request,
 			@RequestBody Ticket ticket){
