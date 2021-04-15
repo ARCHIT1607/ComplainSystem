@@ -51,6 +51,7 @@ public class CustomerController {
 			Customer validCustomer = customerService.getUserByEmail(customer.getEmail());
 			customer.setId(validCustomer.getId());
 			customer.setUsername(validCustomer.getUsername());
+			customer.setRole(validCustomer.getRole());
 			return new ResponseEntity<>(generateJWTToken(customer), HttpStatus.OK);
 		}
 		else {
