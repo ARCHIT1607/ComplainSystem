@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './Models/User/user';
 import { Ticket } from './Models/Ticket/ticket';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnrollmentService {
+
+  // Url variables for calling apis
   registerUrl = "http://localhost:8086/api/register";
   loginUrl = "http://localhost:8086/api/login";
   submitTicketUrl = "http://localhost:8086/ticket/addTicket";
@@ -16,9 +18,19 @@ export class EnrollmentService {
   getAllTicketsUrl = "http://localhost:8086/ticket/admin/getAllTickets";
   getTicketByIdUrl = "http://localhost:8086/ticket/admin/getAllTicketById/";
   updateTicketUrl = "http://localhost:8086/ticket/admin/updateTicket";
+
+  //Component Interaction
+
+  private userNameSource = new Subject<string>();
+  userName$ = this.userNameSource.asObservable();
   
   constructor(private http: HttpClient,
               private route: Router) { }
+
+
+  sendUsername(username:string){
+    this.userNameSource.next(username)
+  }
 
   // Service to Register a User
   register(user: User){
@@ -61,6 +73,7 @@ export class EnrollmentService {
 
   logoutUser(){
     localStorage.removeItem('token')
+    localStorage.removeItem('username')
     console.log("Token Deleted")
     this.route.navigate(['/login'])
 
@@ -69,4 +82,9 @@ export class EnrollmentService {
   getToken(){
     return localStorage.getItem('token')
   }
+
+  getUsername(){
+    return localStorage.getItem('username')
+  }
+
 }

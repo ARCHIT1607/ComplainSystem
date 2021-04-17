@@ -26,10 +26,18 @@ export class RegisterComponent implements OnInit {
     this.enrollService.register(registerForm)
       .subscribe(
         data => {console.log('Success!', data),
+                this.sendUserName(data.customer.username)
+                localStorage.setItem('username', data.customer.username)
                 this.router.navigate(['user-dashboard'])
       },
         error => console.error('Error!', error)
       )
   }
 
+  sendUserName(username:string){
+    this.enrollService.sendUsername(username)
+  }
+
 }
+
+

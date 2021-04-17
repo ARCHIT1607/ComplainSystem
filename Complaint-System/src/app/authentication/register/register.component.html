@@ -13,9 +13,8 @@
             </div>
             <div class="form__container">
                 <form #registerForm="ngForm" novalidate (ngSubmit)="onSubmit(registerForm.value)">
-                    {{registerForm.value | json}}
                     <div class="form__group">
-                        <label for="name">Full Name</label>
+                        <label for="name">Username</label>
                         <input 
                             type="text" 
                             #name="ngModel"
@@ -68,6 +67,7 @@
                     </div>
                     <div class="form__group">
                         <button type="submit">Register</button>
+                        <a routerLink="/login">Already Register?</a>
                     </div>
                 </form>
             </div>

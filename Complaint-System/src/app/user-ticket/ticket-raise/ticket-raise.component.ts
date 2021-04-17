@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EnrollmentService } from 'src/app/enrollment.service';
+import { EnrollmentService } from '../../enrollment.service';
 import { Ticket } from 'src/app/Models/Ticket/ticket';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EnrollmentService } from 'src/app/enrollment.service';
+import { EnrollmentService } from '../../enrollment.service';
 import { Ticket } from 'src/app/Models/Ticket/ticket';
 
 @Component({
@@ -22,8 +22,8 @@ export class TicketViewComponent implements OnInit {
       this.enrollService.getUserTicket()
       .subscribe(data => {
         console.log(data, typeof data),
-        this.ticket = Array.from(Object.keys(data), k=>data[k]),
-        console.log(this.ticket[1]),
+        this.ticket = Array.from(Object.keys(data), k=>data[k])
+        console.log(this.ticket[1])
         this.userTicket = this.ticket[0]},
       error => console.log("Error", error));
       
