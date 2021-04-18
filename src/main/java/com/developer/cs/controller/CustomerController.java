@@ -39,6 +39,14 @@ public class CustomerController {
 	@PostMapping(value = "/register")
 	public ResponseEntity<Map<String, Object>> register(@RequestBody Customer customer) {
 		log.info("register controller");
+		Map<String, Object> errorMessage = new HashMap<String, Object>();
+		List<String> getUserDetails = customerService.getUserDetails();
+		for(String s: getUserDetails) {
+			if(s.equalsIgnoreCase(customer.getEmail())) {
+				errorMessage.put("errorMessage", "Email already exists, Please use another email");
+				return new ResponseEntity<>(errorMessage, HttpStatus.OK);
+			}
+		}
 		Customer cus = customerService.register(customer);
 		return new ResponseEntity<>(generateJWTToken(customer), HttpStatus.OK);
 	}
