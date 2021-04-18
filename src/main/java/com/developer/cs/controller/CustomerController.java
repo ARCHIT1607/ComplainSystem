@@ -62,7 +62,7 @@ public class CustomerController {
 	}
 
 	@GetMapping(value = "/getUserDetails")
-	public List<Customer> getUserDetails(){
+	public List<String> getUserDetails(){
 		log.info("GetUserDetails Controller");
 		return customerService.getUserDetails();
 	}
@@ -74,8 +74,8 @@ public class CustomerController {
                 .setIssuedAt(new Date(timestamp))
                 .setExpiration(new Date(timestamp + Constant.TOKEN_VALIDITY))
                 .claim("userId", user.getId())
-                .claim("email", user.getEmail())
-                .claim("password", user.getPassword())
+//                .claim("email", user.getEmail())
+//                .claim("password", user.getPassword())
                 .compact();
         Map<String, Object> map = new HashMap();
         map.put("token", token);

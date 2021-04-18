@@ -44,8 +44,8 @@ public class CustomerService {
 		return validate;
 	}
 
-	public List<Customer> getUserDetails() {
-		return customerRepository.findAll();
+	public List<String> getUserDetails() {
+		return customerRepository.findAllByEmail();
 	}
 
 	public Customer getUserByEmail(String email) {
