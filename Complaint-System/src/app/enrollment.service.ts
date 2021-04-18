@@ -18,6 +18,7 @@ export class EnrollmentService {
   getAllTicketsUrl = "http://localhost:8086/ticket/admin/getAllTickets";
   getTicketByIdUrl = "http://localhost:8086/ticket/admin/getAllTicketById/";
   updateTicketUrl = "http://localhost:8086/ticket/admin/updateTicket";
+  getUserEmailUrl = "http://localhost:8086/api/getUserDetails";
 
   //Component Interaction
 
@@ -65,6 +66,10 @@ export class EnrollmentService {
 
   updateTicket(updatedTicket: Ticket){
     return this.http.put<any>(this.updateTicketUrl, updatedTicket);
+  }
+
+  getUserEmail(){
+    return this.http.get<any>(this.getUserEmailUrl);
   }
 
   loggedIn(){
