@@ -13,6 +13,7 @@ export class TicketViewComponent implements OnInit {
   public userTicket:any = []
   public outsideTicket:any = []
   public priority:any = []
+  isData:boolean = false
   
   
 
@@ -24,8 +25,13 @@ export class TicketViewComponent implements OnInit {
         console.log(data, typeof data),
         this.ticket = Array.from(Object.keys(data), k=>data[k])
         console.log(this.ticket[1])
-        this.userTicket = this.ticket[0]},
-      error => console.log("Error", error));
+        this.userTicket = this.ticket[0]
+        this.isData = true
+      },
+      error => {console.error("Error", error.error.message)
+              console.log(this.isData)
+    }
+      )
       
   }
 

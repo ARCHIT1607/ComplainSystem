@@ -63,11 +63,11 @@
                 </div> -->
             </div>
             <div class="form__group">
-                <label for="staus">Incident Status</label>
-                <select name="status" id="status" [(ngModel)]="formData.status" >
+                <label for="status">Incident Status</label>
+                <select name="status" id="status" [(ngModel)]="formData.status">
                     <option *ngFor="let stat of status" [value]="stat">{{ stat | titlecase }}</option>
                 </select>
-                </div>
+            </div>
             <div class="form__group">
                 <button type="submit">Update Ticket</button>
             </div>

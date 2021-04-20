@@ -1,5 +1,5 @@
 .register{
-    /* height: 90vh; */
+    height: 90vh;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -44,6 +44,10 @@
 }
 
 .form__box{
+    width: 100%;
+}
+
+.form__box .form__container{
     width: 100%;
 }
 

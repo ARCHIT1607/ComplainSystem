@@ -18,7 +18,7 @@
                         <input 
                             type="text" 
                             #name="ngModel"
-                            [class.error]="name.touched && name.invalid" 
+                            [ngClass]="{error: name.touched && name.invalid}" 
                             name="username" 
                             id="name" 
                             placeholder="John Doe" 
@@ -26,7 +26,7 @@
                             required>
                         <span
                             class="error-msg"
-                            [class.hide]="name.valid && name.untouched">
+                            [ngClass]="{hide: name.valid && name.untouched}">
                             Name Required
                         </span>
                     </div>
@@ -35,7 +35,7 @@
                         <input 
                             type="email"
                             #email="ngModel"
-                            [class.error]="email.touched && email.invalid" 
+                            [ngClass]="{error: email.touched && email.invalid}" 
                             name="email" 
                             id="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
@@ -44,8 +44,13 @@
                             required>
                         <span
                             class="error-msg"
-                            [class.hide]="email.valid && email.untouched">
+                            [ngClass]="{hide: email.valid && email.untouched}">
                             Email Required
+                        </span>
+                        <span
+                            class="error-msg"
+                            [ngClass]="{hide: !isEmail}">
+                            Email already exists!<br>Try another email or login with current email
                         </span>
                     </div>
                     <div class="form__group">
@@ -53,7 +58,7 @@
                         <input 
                             type="password"
                             #password="ngModel"
-                            [class.error]="password.touched && password.invalid" 
+                            [ngClass]="{error: password.touched && password.invalid}" 
                             name="password" 
                             id="password" 
                             placeholder="********" 
@@ -61,7 +66,7 @@
                             required>
                         <span
                             class="error-msg"
-                            [class.hide]="password.valid && password.untouched">
+                            [ngClass]="{hide: password.valid && password.untouched}">
                         Password Required
                         </span>
                     </div>
@@ -69,7 +74,7 @@
                         <button type="submit">Register</button>
                         <a routerLink="/login">Already Register?</a>
                     </div>
-                    <!-- <div [ngClass]="hide: !isEmail">Email already exists</div> -->
+                    <!-- <div [ngClass]="{hide: !isEmail}">Email already exists</div> -->
                 </form>
             </div>
         </div>

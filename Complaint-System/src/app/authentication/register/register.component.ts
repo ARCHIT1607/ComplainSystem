@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private enrollService: EnrollmentService,
               private router: Router) { 
-                this.isEmail = false
               }
 
   ngOnInit(): void {
@@ -42,7 +41,7 @@ export class RegisterComponent implements OnInit {
                 if(data.errorMessage){
                   console.log(data.errorMessage)
                   this.isEmail = true
-                  alert(data.errorMessage)
+                  // alert(data.errorMessage)
                 }
                 else{
                   console.log('Success!', data),

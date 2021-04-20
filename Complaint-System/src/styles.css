@@ -81,6 +81,7 @@ html{
 }
 
 .form__group .error-msg{
+    display: block;
     color: var(--primary-color);
     font-size: 1.2rem;
 }
@@ -90,11 +91,8 @@ html{
 }
 
 .form__group select{
-    appearance: none;
+    /* appearance: none; */
     background-color: transparent;
-    outline: none;
-    border: none;
-    padding: 0 1em 0 0;
     margin: 0;
     width: 100%;
     font-family: inherit;
