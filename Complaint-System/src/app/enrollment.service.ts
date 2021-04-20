@@ -11,14 +11,22 @@ import { Observable, Subject } from 'rxjs';
 export class EnrollmentService {
 
   // Url variables for calling apis
-  registerUrl = "http://localhost:8086/api/register";
-  loginUrl = "http://localhost:8086/api/login";
-  submitTicketUrl = "http://localhost:8086/ticket/addTicket";
-  getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
-  getAllTicketsUrl = "http://localhost:8086/ticket/admin/getAllTickets";
-  getTicketByIdUrl = "http://localhost:8086/ticket/admin/getAllTicketById/";
-  updateTicketUrl = "http://localhost:8086/ticket/admin/updateTicket";
-  getUserEmailUrl = "http://localhost:8086/api/getUserDetails";
+  // registerUrl = "http://localhost:8086/api/register";
+  // loginUrl = "http://localhost:8086/api/login";
+  // submitTicketUrl = "http://localhost:8086/ticket/addTicket";
+  // getTicketUrl = "http://localhost:8086/ticket/getAllTicketsByCustomer";
+  // getAllTicketsUrl = "http://localhost:8086/ticket/admin/getAllTickets";
+  // getTicketByIdUrl = "http://localhost:8086/ticket/admin/getAllTicketById/";
+  // updateTicketUrl = "http://localhost:8086/ticket/admin/updateTicket";
+  // getUserEmailUrl = "http://localhost:8086/api/getUserDetails";
+  registerUrl = "https://complaintsystem1.herokuapp.com/api/register";
+  loginUrl = "https://complaintsystem1.herokuapp.com/api/login";
+  submitTicketUrl = "https://complaintsystem1.herokuapp.com/ticket/addTicket";
+  getTicketUrl = "https://complaintsystem1.herokuapp.com/ticket/getAllTicketsByCustomer";
+  getAllTicketsUrl = "https://complaintsystem1.herokuapp.com/ticket/admin/getAllTickets";
+  getTicketByIdUrl = "https://complaintsystem1.herokuapp.com/ticket/admin/getAllTicketById/";
+  updateTicketUrl = "https://complaintsystem1.herokuapp.com/ticket/admin/updateTicket";
+  getUserEmailUrl = "https://complaintsystem1.herokuapp.com/api/getUserDetails";
 
   //Component Interaction
 
