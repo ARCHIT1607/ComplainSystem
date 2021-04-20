@@ -32,6 +32,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class CustomerController {
 
 	Logger log = LoggerFactory.getLogger(CustomerController.class);
+	//test
 
 	@Autowired
 	private CustomerService customerService;
